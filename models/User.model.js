@@ -29,7 +29,7 @@ const seedUser = () => {
         },
         {
             name: 'The world of tech',
-            descriptoin: 'Discussing one of the most exciting topics in the tech industry, with the hacker Anas Al-Ramahi',
+            description: 'Discussing one of the most exciting topics in the tech industry, with the hacker Anas Al-Ramahi',
             status: 'Old'
         }
     ]
