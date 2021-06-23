@@ -1,7 +1,7 @@
 'use strict';
 
 
-const userModel = require('../models/User.model');
+const { userModel } = require('../models/User.model');
 
 const getBooks = (request, response) => {
     
