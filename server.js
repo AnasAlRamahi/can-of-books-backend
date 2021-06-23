@@ -9,7 +9,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT;
 
-const {seedUser} = require('./models/User.model');
+const { seedUser } = require('./models/User.model');
 const {
   getBooks,
   createBook,
@@ -18,8 +18,9 @@ const {
 } = require('./controllers/User.controller');
 
 
-mongoose.connect(`${process.env.MONGO_URL}`,{ useNewUrlParser: true, useUnifiedTopology: true });
-
+mongoose.connect(`${process.env.MONGO_URL}`,
+{ useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 // seedUser(); 
 
