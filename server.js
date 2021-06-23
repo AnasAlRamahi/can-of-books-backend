@@ -3,12 +3,20 @@ const app = express() // initialize your express app instance
 const cors = require('cors');
 const mongoose = require("mongoose");
 require('dotenv').config();
+// Always remember....
 app.use(cors());
+app.use(express.json());
 
 const PORT = process.env.PORT;
 
 const seedUser = require('./models/User.model');
-const userController = require('./controllers/User.controller');
+const {
+  getBooks,
+  createBook,
+  updateBook,
+  deleteBook
+} = require('./controllers/User.controller');
+
 
 mongoose.connect('mongodb://localhost:27017/FavourateBooks',
 { useNewUrlParser: true, useUnifiedTopology: true }
@@ -23,6 +31,13 @@ app.get('/', // our endpoint name
   res.send('Hello World') // our endpoint function response
 });
 
-app.get('/books', userController)
+app.get('/books', getBooks)
+// Create route, which will receive new books to be added for the user
+app.post('/book', createBook);
+// Update route, will will receive the book id that we want to update, and its info in the body payload
+app.put('/book/:book_idx', updateBook);
+// Delete route, which will delete the book by its index
+app.delete('/book/:book_idx', deleteBook)
+
 
 app.listen(PORT); // kick start the express server to work
